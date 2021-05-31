@@ -27,7 +27,6 @@ const Post = mongoose.model("Post", postSchema);
 
 app.get("/", function(req, res){
 
-  res.redirect("/compose");
   Post.find({}, function(err, posts){
     res.render("home", {
       startingContent: homeStartingContent,

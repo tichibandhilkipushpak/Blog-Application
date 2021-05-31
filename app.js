@@ -27,6 +27,7 @@ const Post = mongoose.model("Post", postSchema);
 
 app.get("/", function(req, res){
 
+  res.redirect("/compose");
   Post.find({}, function(err, posts){
     res.render("home", {
       startingContent: homeStartingContent,
@@ -74,7 +75,7 @@ app.get("/contact", function(req, res){
   res.render("contact", {contactContent: contactContent});
 });
 
-let port=process.env.PORT;
+let port=process.env.PORT || 3000;
 app.listen(port, function() {
   console.log("Server started on port 3000");
 });
